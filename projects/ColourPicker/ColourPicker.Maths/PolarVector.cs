@@ -1,4 +1,4 @@
-﻿namespace ColourPicker;
+﻿namespace ColourPicker.Maths;
 
 public class PolarVector
 {

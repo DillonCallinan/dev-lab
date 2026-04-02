@@ -1,15 +1,9 @@
-﻿namespace ColourPicker;
+﻿namespace ColourPicker.Maths;
 
-public class CartesianVector
+public class CartesianVector(double x, double y)
 {
-    public double X { get; set; } // X coordinate
-    public double Y { get; set; } // Y coordinate
-
-    public CartesianVector(double x, double y)
-    {
-        X = x;
-        Y = y;
-    }
+    public double X { get; set; } = x; // X coordinate
+    public double Y { get; set; } = y; // Y coordinate
 
     // Add two Cartesian vectors
     public CartesianVector Add(CartesianVector other)
