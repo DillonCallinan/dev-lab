@@ -8,7 +8,7 @@
     Title="ColourPicker"
     Width="800"
     Height="450"
-    d:DataContext="{d:DesignInstance Type=local:MainWindowViewModel}"
+    d:DataContext="{d:DesignInstance local:MainWindowViewModel}"
     mc:Ignorable="d">
 
     <Window.Resources>

@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using ColourPicker.Desktop;
+using System.Windows;
 
 namespace ColourPicker;
 

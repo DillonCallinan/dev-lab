@@ -1,7 +1,9 @@
-﻿using System.Windows.Media;
+﻿using ColourPicker.Maths;
 using CommunityToolkit.Mvvm.ComponentModel;
+using System.ComponentModel;
+using System.Windows.Media;
 
-namespace ColourPicker;
+namespace ColourPicker.Desktop;
 
 public class MainWindowViewModel : ObservableObject
 {
@@ -36,30 +38,34 @@ public class MainWindowViewModel : ObservableObject
         SaturationSlider = new SliderViewModel("Saturation", 0, 100, 100);
         LightnessSlider = new SliderViewModel("Lightness", 0, 100, 50);
 
-        HueSlider.PropertyChanged += (_, _) => OnHslChanged();
-        SaturationSlider.PropertyChanged += (_, _) => OnHslChanged();
-        LightnessSlider.PropertyChanged += (_, _) => OnHslChanged();
+        HueSlider.PropertyChanged += OnHslChanged;
+        SaturationSlider.PropertyChanged += OnHslChanged;
+        LightnessSlider.PropertyChanged += OnHslChanged;
 
         RedSlider = new SliderViewModel("R", 0, 255, 255);
         GreenSlider = new SliderViewModel("G", 0, 255, 0);
         BlueSlider = new SliderViewModel("B", 0, 255, 0);
 
-        RedSlider.PropertyChanged += (_, _) => OnRgbChanged();
-        GreenSlider.PropertyChanged += (_, _) => OnRgbChanged();
-        BlueSlider.PropertyChanged += (_, _) => OnRgbChanged();
+        RedSlider.PropertyChanged += OnRgbChanged;
+        GreenSlider.PropertyChanged += OnRgbChanged;
+        BlueSlider.PropertyChanged += OnRgbChanged;
 
         AlphaSlider = new SliderViewModel("Opacity", 0, 100, 100);
 
         AlphaSlider.PropertyChanged += (_, _) =>
         {
-            Colour = new SolidColorBrush(Color.FromArgb((byte)(255 * AlphaSlider.Value / AlphaSlider.Max), (byte)RedSlider.Value, (byte)GreenSlider.Value, (byte)BlueSlider.Value));
+            Colour = new SolidColorBrush(
+                Color.FromArgb((byte)(255 * AlphaSlider.Value / AlphaSlider.Max),
+                (byte)RedSlider.Value,
+                (byte)GreenSlider.Value,
+                (byte)BlueSlider.Value));
         };
 
         _listenToHsl = true;
         _listenToRgb = true;
     }
 
-    private void OnHslChanged()
+    private void OnHslChanged(object? sender, PropertyChangedEventArgs e)
     {
         if (!_listenToHsl)
         {
@@ -80,12 +86,16 @@ public class MainWindowViewModel : ObservableObject
         GreenSlider.Value = rgb.G;
         BlueSlider.Value = rgb.B;
 
-        Colour = new SolidColorBrush(Color.FromArgb((byte)(255 * AlphaSlider.Value / AlphaSlider.Max), (byte)rgb.R, (byte)rgb.G, (byte)rgb.B));
+        Colour = new SolidColorBrush(
+            Color.FromArgb((byte)(255 * AlphaSlider.Value / AlphaSlider.Max),
+            (byte)rgb.R,
+            (byte)rgb.G,
+            (byte)rgb.B));
 
         _listenToRgb = true;
     }
 
-    private void OnRgbChanged()
+    private void OnRgbChanged(object? sender, PropertyChangedEventArgs e)
     {
         if (!_listenToRgb)
         {
@@ -106,7 +116,11 @@ public class MainWindowViewModel : ObservableObject
         SaturationSlider.Value = hsl.S * SaturationSlider.Max;
         LightnessSlider.Value = hsl.L * LightnessSlider.Max;
 
-        Colour = new SolidColorBrush(Color.FromArgb((byte)(255 * AlphaSlider.Value / AlphaSlider.Max), (byte)rgb.R, (byte)rgb.G, (byte)rgb.B));
+        Colour = new SolidColorBrush(
+            Color.FromArgb((byte)(255 * AlphaSlider.Value / AlphaSlider.Max),
+            (byte)rgb.R,
+            (byte)rgb.G,
+            (byte)rgb.B));
 
         _listenToHsl = true;
     }

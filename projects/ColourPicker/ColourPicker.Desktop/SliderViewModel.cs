@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace ColourPicker;
+namespace ColourPicker.Desktop;
 
 public class SliderViewModel : ObservableObject
 {
