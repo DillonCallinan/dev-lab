@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
 VisualStudioVersion = 18.1.11304.174
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColourPicker.Desktop", "ColourPicker\ColourPicker.Desktop.csproj", "{8C435C1F-C80A-4E29-913B-9189BC28FAFE}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColourPicker.Maths", "ColourPicker.Maths\ColourPicker.Maths.csproj", "{21B20EF8-7B99-42B4-A012-6005D8920034}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColourPicker.Desktop", "ColourPicker.Desktop\ColourPicker.Desktop.csproj", "{1BA1A4AD-18E3-4F68-FDFA-D6A9659AB5EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8C435C1F-C80A-4E29-913B-9189BC28FAFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8C435C1F-C80A-4E29-913B-9189BC28FAFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8C435C1F-C80A-4E29-913B-9189BC28FAFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8C435C1F-C80A-4E29-913B-9189BC28FAFE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{21B20EF8-7B99-42B4-A012-6005D8920034}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{21B20EF8-7B99-42B4-A012-6005D8920034}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21B20EF8-7B99-42B4-A012-6005D8920034}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21B20EF8-7B99-42B4-A012-6005D8920034}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BA1A4AD-18E3-4F68-FDFA-D6A9659AB5EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BA1A4AD-18E3-4F68-FDFA-D6A9659AB5EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BA1A4AD-18E3-4F68-FDFA-D6A9659AB5EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BA1A4AD-18E3-4F68-FDFA-D6A9659AB5EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
