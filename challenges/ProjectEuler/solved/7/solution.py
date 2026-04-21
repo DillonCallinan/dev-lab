@@ -2,9 +2,6 @@ import time
 from typing import Iterator
 
 
-# region From Problem 7
-
-
 class Primes(Iterator[int]):
     _primes: set[int]
     _i: int
@@ -108,40 +105,28 @@ def get_digits(number: int) -> list[int]:
 # endregion
 
 
-# endregion
-
-
 def main():
     start = time.perf_counter()
-    sum = 0
-    for i, p in enumerate(Primes(2_000_000)):
-        if p >= 2_000_000:
-            break
+    t = start
+    for i, p in enumerate(Primes(1_000_000)):
         if i % 500 == 0:
-            t = time.perf_counter()
+            t_2 = time.perf_counter()
             print(
-                f"{i=}, {p=}, at {t - start}s"
+                f"{i=}, at {t_2 - start}s (avg {(t_2 - t) / 500}s per prime for last 500 primes calculated)"
             )
-        sum += p
-
-    print(sum)
+            t = t_2
+        if i == 10_000:
+            print(f"{p=}, took {time.perf_counter() - start}s")
+            break
 
 
 main()
 
 
-# Attempt 1
-# ...
-# i=143000, p=1913993, at 4712.556303199963s
-# i=143500, p=1921177, at 4746.920392500004s
-# i=144000, p=1928261, at 4783.24026380002s
-# i=144500, p=1935617, at 4817.968293100013s
-# i=145000, p=1942751, at 4852.8573213999625s
-# i=145500, p=1949947, at 4890.100026699947s
-# i=146000, p=1957147, at 4925.476432599942s
-# i=146500, p=1964561, at 4962.2146722000325s
-# i=147000, p=1972207, at 4999.699490000028s
-# i=147500, p=1979491, at 5035.502699299948s
-# i=148000, p=1986769, at 5073.148292999947s
-# i=148500, p=1993933, at 5112.51702629996s
-# 142913828922
+# Attempt 1:
+# p=104743, took 97.57025899994187s
+
+# Attempt 2:
+# Replaced call to is_prime() in Primes._next()
+# with a more performative version, Primes._is_prime().
+# p=104743, took 11.683127199998125s
